@@ -30,7 +30,7 @@ const examplePrompts = [
 (() => {
   const savedTheme = localStorage.getItem("theme");
   const systemPrefersDark = window.matchMedia(
-    "(prefers-color-scheme: dark)"
+    "(prefers-color-scheme: dark)",
   ).matches;
 
   const isDarkTheme =
@@ -96,9 +96,9 @@ const generateImages = async (
   selectedModel,
   imageCount,
   aspectRatio,
-  promptText
+  promptText,
 ) => {
-  const MODEL_URL = `https://api-inference.huggingface.co/models/${selectedModel}`;
+  const MODEL_URL = `https://router.huggingface.co/hf-inference/models/${selectedModel}`;
   const { width, height } = getImageDimensions(aspectRatio);
   //Disabling the generate btn if the request is still being processed
   generateBtn.setAttribute("disabled", "true");
@@ -142,7 +142,7 @@ const createImageCards = (
   selectedModel,
   imageCount,
   aspectRatio,
-  promptText
+  promptText,
 ) => {
   gridGallery.innerHTML = "";
 
